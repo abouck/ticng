@@ -1,0 +1,127 @@
+#game {
+    width: 319px;
+    height: 568px;
+    background: #fbdfe9;
+    margin: 0 auto;
+}
+
+#gamebox {
+    width: 319px;
+    height: 319px;
+}
+
+#win, #start {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 60px;
+    font-weight: 200;
+    text-align: center;
+    color: #fbdfe9;
+    margin: 0 auto;
+    width: 70%;
+    height: 223px;
+    background-color: #7edaec;
+    position: relative;
+    top: -272px;
+    padding: 0;
+    border: 2px solid white;
+}
+
+.choice {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 90px;
+    font-weight: 200;
+    text-align: center;
+    color: #fbdfe9;
+    background-color: #7edaec;
+    width: 50%;
+    top: 111px;
+    height: 110px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.chooseX{
+    position: absolute;
+    border-top: 2px solid white;
+    
+
+}
+
+
+.chooseO {
+    position: absolute;
+    left: 50%;
+    border-top: 2px solid white;
+
+
+    
+
+}
+body {
+    padding: 0;
+    margin: 0;
+    background: #fbdfe9;
+}
+
+h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 60px;
+    font-weight: 200;
+    text-align: center;
+    color: #7edaec;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    width: 319px;
+    height: 124px;
+}
+
+footer {
+    width: 319px;
+    height: 124px;
+}
+
+.clearfix{
+    clear: both;
+}
+
+.box {
+    padding: 0;
+    margin: 0;
+    height: 105px;
+    width: 105px;
+    float: left;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 110px;
+    line-height: 95%;
+    font-weight: 200;
+    text-align: center;
+}
+
+.r1 {
+    border-bottom: 1px solid #7edaec;
+}
+
+.c1 {
+    border-right: 1px solid #7edaec;
+}
+
+.r2 {
+    border-top: 1px solid #7edaec;
+    border-bottom: 1px solid #7edaec;
+}
+
+.c2 {
+    border-left: 1px solid #7edaec;
+    border-right: 1px solid #7edaec;
+}
+
+.r3 {
+    border-top: 1px solid #7edaec;
+}
+
+.c3 {
+    border-left: 1px solid #7edaec;
+}
