@@ -35,6 +35,7 @@ function start(){
 	}	
 	document.getElementById('win').style.display = "none"
 	setBg()
+	alreadyWon = false
 }
 
 // Runs on win,
