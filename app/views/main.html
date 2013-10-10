@@ -2,6 +2,7 @@
 	<div id="game">
 		<header>
 			<h1>Tic Tac Toe</h1>
+			<span ng-show="gameWon">You Win!</span><span ng-show="cats">Cats Game!</span>
 		</header>
 		<div id="gamebox">
 			<div ng-repeat="row in ticArr">	
@@ -11,8 +12,9 @@
 			</div>
 			{{ticArr}}
 		</div>
-		<!-- These are the start and win boxes
-			<div id="win" style="display:none;">You Win!
+		
+		<!--
+			<div id="win" ng-show="gameWon">You Win!
 				<div class="choice chooseX">X</div>
 				<div class="choice chooseO">O</div>
 			</div>
@@ -21,7 +23,7 @@
 				<div class="choice chooseX">X</div>
 				<div class="choice chooseO">O</div>
 			</div>
-			-->
+		-->
 		<footer>
 
 		<h1></h1>
