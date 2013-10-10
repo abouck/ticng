@@ -87,7 +87,7 @@ footer {
     clear: both;
 }
 
-.box {
+.sqr {
     padding: 0;
     margin: 0;
     height: 105px;
@@ -100,28 +100,18 @@ footer {
     text-align: center;
 }
 
-.r1 {
+.bottomLine {
     border-bottom: 1px solid #7edaec;
 }
 
-.c1 {
+.rightLine {
     border-right: 1px solid #7edaec;
 }
 
-.r2 {
-    border-top: 1px solid #7edaec;
-    border-bottom: 1px solid #7edaec;
-}
-
-.c2 {
-    border-left: 1px solid #7edaec;
-    border-right: 1px solid #7edaec;
-}
-
-.r3 {
+.topLine {
     border-top: 1px solid #7edaec;
 }
 
-.c3 {
+.leftLine {
     border-left: 1px solid #7edaec;
 }

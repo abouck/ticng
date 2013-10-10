@@ -4,15 +4,14 @@
 			<h1>Tic Tac Toe</h1>
 		</header>
 		<div id="gamebox">
-			<div class="box r1 c1" id="b1" ></div>
-			<div class="box r1 c2" id="b2" ></div>
-			<div class="box r1 c3" id="b3" ></div>
-			<div class="box r2 c1 clearfix" id="b4" ></div>
-			<div class="box r2 c2" id="b5" ></div>
-			<div class="box r2 c3" id="b6" ></div>
-			<div class="box r3 c1 clearfix" id="b7" ></div>
-			<div class="box r3 c2" id="b8" ></div>
-			<div class="box r3 c3" id="b9" ></div><div class="clearfix"></div>
+			<div ng-repeat="row in ticArr">	
+				<div ng-repeat="sqr in row" ng-class="{sqr:true,topLine:sqr.r != 1,leftLine:sqr.c != 1, bottomLine:sqr.r != 3, rightLine:sqr.c != 3}" ng-click="fill(sqr,row)" ng-bind="sqr.value">
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			{{ticArr}}
+		</div>
+		<!-- These are the start and win boxes
 			<div id="win" style="display:none;">You Win!
 				<div class="choice chooseX">X</div>
 				<div class="choice chooseO">O</div>
@@ -22,8 +21,9 @@
 				<div class="choice chooseX">X</div>
 				<div class="choice chooseO">O</div>
 			</div>
-		</div>
-		<footer onload="pgLoad()">
+			-->
+		<footer>
+
 		<h1></h1>
 		</footer>
 	
