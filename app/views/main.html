@@ -2,10 +2,12 @@
 	<div id="game">
 		<header>
 			<h1>Tic Tac Toe</h1>
-			<span ng-show="gameWon">You Win!</span><span ng-show="cats">Cats Game!</span>
+			<span ng-show="gameWon">You Win!</span>
+			<span ng-show="cats">Cats Game!</span>
+			<span ng-show="turnWait">Waiting for other player...</span>
 		</header>
 		<div id="gamebox">
-			<div ng-repeat="row in ticArr">	
+			<div ng-repeat="row in games[gameId].board">	
 				<div ng-repeat="sqr in row" ng-class="{sqr:true,topLine:sqr.r != 1,leftLine:sqr.c != 1, bottomLine:sqr.r != 3, rightLine:sqr.c != 3}" ng-click="fill(sqr,row)" ng-bind="sqr.value">
 				</div>
 				<div class="clearfix"></div>

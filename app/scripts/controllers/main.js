@@ -1,36 +1,73 @@
 'use strict';
 
 angular.module('newTicApp')
-	.controller('MainCtrl', function ($scope){
-		
-	$scope.ticArr=[[{value: '', r: 1, c: 1},{value: '', r: 1, c: 2},{value: '', r: 1, c: 3}],[{value: '', r: 2, c: 1},{value: '', r: 2, c: 2},{value: '', r: 2, c: 3}],
-	[{value: '', r: 3, c: 1},{value: '', r: 3, c: 2},{value: '', r: 3, c: 3}]]
+	.controller('MainCtrl', function ($scope, angularFire){
+	$scope.games = [];
+	$scope.queue = {};
+	$scope.turnWait = false;
 
-	var playerTurn = 1;
+	var games = new Firebase("https://ticsntacs.firebaseio.com/games");
+	angularFire(games, $scope, "games").then(function() {
+
+		var queue = new Firebase("https://ticsntacs.firebaseio.com/queue");
+		angularFire(queue, $scope, "queue").then(function() {
+			if($scope.queue.gameId == undefined) {
+				console.log("I'm player 1");
+				$scope.player = "p1";
+
+				var newGame = {
+					board: [[{value: '', r: 1, c: 1},{value: '', r: 1, c: 2},{value: '', r: 1, c: 3}],
+							[{value: '', r: 2, c: 1},{value: '', r: 2, c: 2},{value: '', r: 2, c: 3}],
+							[{value: '', r: 3, c: 1},{value: '', r: 3, c: 2},{value: '', r: 3, c: 3}]],
+					turn: "p1",
+					win: false,
+					turnCount: 0
+				};
+
+				$scope.gameId = $scope.games.push(newGame) - 1;
+				$scope.queue.gameId = $scope.gameId;
+				console.log("Player 1's game is: " + $scope.gameId);
+
+			} else {
+				console.log("I'm player 2");
+				$scope.player = "p2";
+
+				$scope.gameId = $scope.queue.gameId;
+				$scope.queue = {};
+				console.log("Player 2's game is: " + $scope.gameId);
+			}
+		});
+	});
+
+// End of Firebase stuff
+
 	$scope.fill = function(sqr,row) {
+		
 		if(sqr.value == "X" || sqr.value == "O")
 		alert("Please Choose an Empty Square!")
 		else {
-			if(playerTurn % 2 == 1) 
+			if($scope.games[$scope.gameId].turnCount % 2 != 1) 
 				sqr.value = "X";
 			else 
 				sqr.value = "O";
 	
-		++playerTurn
+		++$scope.games[$scope.gameId].turnCount
 		};
 		$scope.win(row,sqr)
 
-	}
+	 
+}
 
 
 $scope.win = function(row,sqr){		
+	$scope.turnWait = false
 	var winTest = 0
-	var len = this.ticArr.length
+	var len = $scope.games[$scope.gameId].board.length
 // Win eval for rows
 		for (var i=0; i<len; i++) {
 			winTest = 0
 			for (var o=0; o<len; o++) {
-				switch(this.ticArr[i][o].value)
+				switch($scope.games[$scope.gameId].board[i][o].value)
 				{
 					case "X":
 						++winTest
@@ -42,13 +79,14 @@ $scope.win = function(row,sqr){
 			};
 			if(Math.abs(winTest) == 3)
 		$scope.gameWon = true
-		}
+		} 
+	
 		
 // Win eval for columns
 		for (var i=0; i<len; i++) {
 			winTest = 0
 			for (var o=0; o<len; o++) {
-				switch(this.ticArr[o][i].value)
+				switch($scope.games[$scope.gameId].board[o][i].value)
 				{
 					case "X":
 						++winTest
@@ -68,7 +106,7 @@ $scope.win = function(row,sqr){
 	for(var i = 0;i < len ; ++ i)
 	{
 		// Diagonals going from upper-left to lower-right
-		switch(this.ticArr[i][i].value)
+		switch($scope.games[$scope.gameId].board[i][i].value)
 			{
 				case "X":
 					++diagTest1;
@@ -78,7 +116,7 @@ $scope.win = function(row,sqr){
 					break;
 			}
 		// Diagonals going from upper-right to lower-left
-		switch(this.ticArr[i][(len-1)-i].value)
+		switch($scope.games[$scope.gameId].board[i][(len-1)-i].value)
 			{
 				case "X":
 					++diagTest2;
@@ -108,14 +146,16 @@ $scope.win = function(row,sqr){
 	for (var i=0; i<len; i++) {
 			winTest = 0
 			for (var o=0; o<len; o++) {
-				if(this.ticArr[i][o].value != "")
+				if($scope.games[$scope.gameId].board[i][o].value != "")
 						++catsTest		
 				};
 	}
 	if(catsTest == 9 && $scope.gameWon != true) {
 	$scope.cats = true
 	}
-	}	
+	} 
+
+		
 	});
 	
 
