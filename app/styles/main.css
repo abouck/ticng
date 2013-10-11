@@ -28,15 +28,12 @@
 
 #plr {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 200;
     text-align: center;
-    color: #fbdfe9;
+    color: #7edaec;
     margin: 0 auto;
     padding: 0;
-    background-color: #7edaec;
-    border: 2px solid white;
-    width: 80px;
 
 }
 

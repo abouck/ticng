@@ -2,9 +2,8 @@
 	<div id="game">
 		<header>
 			<h1>Tic Tac Toe</h1>
-			<!--<span ng-show="yourTurn">Your Turn</span>
-			<span ng-hide="yourTurn">Waiting on other player...</span>
-			-->		
+			<span ng-show="myTurn">Your Turn</span>
+			<div id="plr" ng-hide="games[gameId].waiting">Turn: {{games[gameId].turn}}</div>
 		</header>
 		<div id="gamebox">
 			<div ng-repeat="row in games[gameId].board">	

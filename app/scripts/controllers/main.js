@@ -46,10 +46,8 @@ angular.module('newTicApp')
 	});
 
 // End of Firebase stuff
+//	var $scope.myTurn = $scope.games[$scope.gameId].turn == $scope.player
 
-	$scope.getBgImgObj = function() {
-   				return { 'background-image': "url('img/' + player + '.png')"  }
-				}
 
 	$scope.fill = function(sqr,row) {
 		if((!$scope.games[$scope.gameId].waiting) && ($scope.games[$scope.gameId].turn == $scope.player)) {
