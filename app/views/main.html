@@ -2,9 +2,9 @@
 	<div id="game">
 		<header>
 			<h1>Tic Tac Toe</h1>
-			<span ng-show="gameWon">You Win!</span>
-			<span ng-show="cats">Cats Game!</span>
-			<span ng-show="turnWait">Waiting for other player...</span>
+			<!--<span ng-show="yourTurn">Your Turn</span>
+			<span ng-hide="yourTurn">Waiting on other player...</span>
+			-->		
 		</header>
 		<div id="gamebox">
 			<div ng-repeat="row in games[gameId].board">	
@@ -12,22 +12,18 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
-			{{ticArr}}
 		</div>
-		
-		<!--
-			<div id="win" ng-show="gameWon">You Win!
-				<div class="choice chooseX">X</div>
-				<div class="choice chooseO">O</div>
+			<div id="win" ng-show="games[gameId].win">{{games[gameId].winner}} Wins!
+				<div class="playagain" ng-click="newGame()">Play Again?</div>
+			</div>
+			<div id="draw" ng-show="games[gameId].draw">DRAW
+				<div class="playagain" ng-click="newGame()">Play Again?</div>
 			</div>
 			
-			<div id="start">Start:
-				<div class="choice chooseX">X</div>
-				<div class="choice chooseO">O</div>
+			<div id="start" ng-show="games[gameId].waiting">
+			Waiting for O to Join
 			</div>
-		-->
 		<footer>
-
 		<h1></h1>
 		</footer>
 	

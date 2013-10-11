@@ -10,7 +10,7 @@
     height: 319px;
 }
 
-#win, #start {
+#win, #start, #draw {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 60px;
     font-weight: 200;
@@ -24,6 +24,35 @@
     top: -272px;
     padding: 0;
     border: 2px solid white;
+}
+
+#plr {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 60px;
+    font-weight: 200;
+    text-align: center;
+    color: #fbdfe9;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #7edaec;
+    border: 2px solid white;
+    width: 80px;
+
+}
+
+.playagain {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 60px;
+    font-weight: 200;
+    text-align: center;
+    color: #fbdfe9;
+    background-color: #7edaec;
+    width: 100%;
+    top: 111px;
+    height: 110px;
+    margin: 0px;
+    padding: 0px;
+    border-top: 2px solid white;
 }
 
 .choice {
@@ -53,8 +82,11 @@
     left: 50%;
     border-top: 2px solid white;
 
-
+}
     
+a {
+    text-decoration: none;
+
 
 }
 body {
