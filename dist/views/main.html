@@ -1,0 +1,28 @@
+<div id="game">
+		<header>
+			<h1>Tic Tac Toe</h1>
+			<span ng-show="myTurn">Your Turn</span>
+			<div id="plr" ng-hide="games[gameId].waiting">Turn: {{games[gameId].turn}}</div>
+		</header>
+		<div id="gamebox">
+			<div ng-repeat="row in games[gameId].board">	
+				<div ng-repeat="sqr in row" ng-class="{sqr:true,topLine:sqr.r != 1,leftLine:sqr.c != 1, bottomLine:sqr.r != 3, rightLine:sqr.c != 3}" ng-click="fill(sqr,row)" ng-bind="sqr.value">
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+			<div id="win" ng-show="games[gameId].win">{{games[gameId].winner}} Wins!
+				<div class="playagain" ng-click="newGame()">Play Again?</div>
+			</div>
+			<div id="draw" ng-show="games[gameId].draw">DRAW
+				<div class="playagain" ng-click="newGame()">Play Again?</div>
+			</div>
+			
+			<div id="start" ng-show="games[gameId].waiting">
+			Waiting for O to Join
+			</div>
+		<footer>
+		<h1></h1>
+		</footer>
+	
+	</div>
