@@ -21,7 +21,7 @@
     height: 223px;
     background-color: #7edaec;
     position: relative;
-    top: -272px;
+    margin-top: -272px;
     padding: 0;
     border: 2px solid white;
 }
@@ -110,6 +110,14 @@ header {
 footer {
     width: 319px;
     height: 124px;
+    top: 450px;
+    position: absolute;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 40px;
+    font-weight: 200;
+    text-align: center;
+    color: #7edaec;
+
 }
 
 .clearfix{
